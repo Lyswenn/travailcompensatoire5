@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Relevé de notes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='script.js'></script>
+    
+</head>
+
+<body onload="toggleS3()">
+
+<header>
+        <div>RELEVE DE NOTES</div>
+        <a href="#">Déconnexion</a>
+</header>
+    
+<main>
+       
+    <div id="infosEtudiant"></div>
+
+    <div id="semestres">
+        <button type="button" onclick="toggleS0()">S1</button>
+        <button type="button" onclick="toggleS1()">S2</button>
+        <button type="button" onclick="toggleS2()">S3</button>
+        <button type="button" onclick="toggleS3()">S4</button>
+    </div>
+
+
+    <div id="bulletin">
+        <p style="text-align: right;">Note/20 (Coefficient)</p>
+    <!-- <div class="BoxUE" id="ue" onclick="openClose(this, event)">
+        <p class="noteGAUCHE"></p>
+
+        <div class="boxToggle BoxMATIERE" id="module" onclick="openClose(this, event)">
+            <p class="noteGAUCHE"></p>
+
+            <div class="noteMATIERE boxToggle" id="eval" onclick="openClose(this, event)">
+                <p class="noteGAUCHE"></p>
+
+                <div class="noteGAUCHE boxToggle" id="noteEVAL"></div>
+
+            </div>
+        </div>   
+    </div> -->
+    </div>
+
+
+    <div id="finBulletin">
+        
+        * La moyenne des UE est modulée par un malus de 0,02 point par heure d'absence injustifiée.
+            <div class="infosMalus">
+            <br>En cas de contestation de la présente décision, vous pouvez former :
+            <br>- soit un <strong>recours gracieux</strong> auprès de la Présidente de l'Université sans condition de délai,
+            <br>- soit un <strong>recours contentieux</strong> auprès du tribunal administratif de Strasbourg dans un délai de deux mois à compter de la notificiation de la présente décision
+        </div>
+    </div>
+
+
+    <div id="test"></div>
+
+</main>
+    
+
+
+</body>
+
+</html>

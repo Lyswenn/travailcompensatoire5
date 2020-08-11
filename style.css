@@ -1,0 +1,144 @@
+/*****************/
+/* ROOT = RACINE */
+/*****************/
+:root{
+	--couleur-palette-1: #123456;	
+	--couleur-palette-2: #abcdef;
+}
+
+body{
+    margin: 0;
+    font-family: arial;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/***************/
+/* MEP globale */
+/***************/
+.flex{
+    display: flex;
+}
+
+/*********************/
+/* Gestion du header */
+/*********************/
+header{
+    background: var(--couleur-palette-1); /*VARIABLE DANS ROOT */
+    color: #FFF;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+header>a{
+    margin-left: auto;
+    color: #FFF;
+    text-decoration: none;
+}
+button{
+    height: auto;
+    border: none;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+	transition: 0.2s;
+	outline: none;
+}
+button:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+}
+
+
+/*****************/
+/* Barre de main */
+/*****************/
+main{
+    background: #F0F0F0;
+    padding : 10px;
+}
+
+/*****************/
+/* BOITE POUR UE */
+/*****************/
+.BoxUE{
+    height: auto;
+    border: none;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+	transition: 0.2s;
+	outline: none;
+}
+ .BoxUE:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+} 
+.BoxUE>div.noteUE{
+    text-align: right;
+}
+
+
+
+/**********************/
+/* BOITE POUR MATIERE */
+/**********************/
+#BoxMATIERE{
+    height: auto;
+    width: 60vw;
+    border: none;
+    background: var(--couleur-palette-2);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+	transition: 0.2s;
+}
+
+.boxToggle{
+    display: none;
+}
+
+
+.BoxMATIERE{
+    height: auto;
+    border: none;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+	transition: 0.2s;
+	outline: none;
+}
+#BoxMATIERE:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+}
+
+.noteGAUCHE{
+    text-align: right;
+}
+
+
+.noteMATIERE{
+    height: auto;
+    border: none;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
+	transition: 0.2s;
+	outline: none;
+}
+ .noteMATIERE:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+}
+
