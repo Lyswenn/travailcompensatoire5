@@ -39,7 +39,7 @@ header>a{
 button{
     height: auto;
     border: none;
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
@@ -50,6 +50,13 @@ button{
 button:active{
 	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
 	transform: translate(0, 4px);
+}
+
+#semestres {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 2%;
 }
 
 
@@ -67,7 +74,7 @@ main{
 .BoxUE{
     height: auto;
     border: none;
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
@@ -108,7 +115,7 @@ main{
 .BoxMATIERE{
     height: auto;
     border: none;
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
@@ -129,7 +136,7 @@ main{
 .noteMATIERE{
     height: auto;
     border: none;
-    background: #FFF;
+    background: rgba(255, 255, 255, 0.5);
     padding: 10px;
     border-radius: 10px;
     margin: 5px;
@@ -142,3 +149,21 @@ main{
 	transform: translate(0, 4px);
 }
 
+/**********************/
+/*    Fin de page   */
+/**********************/
+
+#infosSituation {
+    margin: 10px;
+    text-align: right;
+}
+
+.infosMalus {
+    margin-top: 6px;
+    margin-left: 2%;
+    padding: 6px;
+    font-size: 14px;
+    border: solid black 1px;
+    width: 70%;
+    background: rgba(255, 255, 255, 0.3)
+}

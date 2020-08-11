@@ -64,7 +64,7 @@ function toggleS0() {
                 
                     document.getElementById("bulletin").innerHTML = ue;
         
-                    document.getElementById("finBulletin").innerHTML =
+                    document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
         
         
@@ -138,7 +138,7 @@ function toggleS1() {
                     
                     document.getElementById("bulletin").innerHTML = ue;
         
-                    document.getElementById("finBulletin").innerHTML =
+                    document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
         
         
@@ -212,7 +212,7 @@ function toggleS2() {
         
                     document.getElementById("bulletin").innerHTML = ue;
         
-                    document.getElementById("finBulletin").innerHTML =
+                    document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
         
         
@@ -300,7 +300,7 @@ function toggleS3() {
         
                     document.getElementById("bulletin").innerHTML = ue;
         
-                    document.getElementById("finBulletin").innerHTML =
+                    document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
         
         
