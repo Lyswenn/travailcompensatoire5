@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Relevé de notes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/stylemobile.css">
     <script src='script.js'></script>
     
 </head>
@@ -20,16 +21,18 @@
     
 <main>
 
+    <img src="img/logoiut.png">
+
     <div id="nonOfficiel">non officiel</div>
        
     <div id="infosEtudiant"></div>
 
     <div id="semestres">
-        Choisissez un semestre.<br>
-        <button type="button" onclick="toggleS0()">S1</button>
-        <button type="button" onclick="toggleS1()">S2</button>
-        <button type="button" onclick="toggleS2()">S3</button>
-        <button type="button" onclick="toggleS3()">S4</button>
+        <p>Choisissez un semestre.<br></p>
+        <button type="button" class="button" onclick="toggleS0()">S1</button>
+        <button type="button" class="button" onclick="toggleS1()">S2</button>
+        <button type="button" class="button" onclick="toggleS2()">S3</button>
+        <button type="button" class="button buttonToggle" onclick="toggleS3()">S4</button>
     </div>
 
     <div id="beforeBulletin"></div>

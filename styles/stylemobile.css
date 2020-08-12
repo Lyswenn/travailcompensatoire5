@@ -1,0 +1,40 @@
+
+/**********************/
+/*    PETITS ECRANS    */
+/**********************/
+
+
+@media only screen and (max-width: 600px) {
+
+    #semestres {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    #semestres>p {
+        display: none;
+    }
+
+    button {
+        width: 50%;
+        height: 70px;
+        margin: 2px;
+        font-size: 16px;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+    }
+
+
+    #nonOfficiel {
+        font-size: 60px;
+        margin-top: 10%;
+    }
+
+    img {
+        position: relative;
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 3%;
+    }
+}

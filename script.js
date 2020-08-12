@@ -66,6 +66,8 @@ function toggleS0() {
         
                     document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
+
+
         
         
                 }) // fermeture .then
@@ -140,6 +142,7 @@ function toggleS1() {
         
                     document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
+
         
         
                 }) // fermeture .then
@@ -214,6 +217,8 @@ function toggleS2() {
         
                     document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
+
+     
         
         
                 }) // fermeture .then
@@ -302,7 +307,7 @@ function toggleS3() {
 
         // AFFICHAGE DES INFORMATIONS "STATIQUES"
                     
-                    document.getElementById("beforeBulletin").innerHTML += `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;
+                    document.getElementById("beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;
 
         
                     document.getElementById("infosSituation").innerHTML =
@@ -323,7 +328,10 @@ function toggleS3() {
                     + `<br>Le chef de département MMI
                     <br><br>Michel GREVILLOT`
         
-        
+
+                    // var button = document.getElementsByClassName(".button");
+                    // button.classList.toggle("buttonToggle");
+
                 }) // fermeture .then
         });
     };
