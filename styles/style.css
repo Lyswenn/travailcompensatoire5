@@ -40,6 +40,9 @@ header>a{
     color: #FFF;
     text-decoration: none;
 }
+header>img {
+    display: none;
+}
 button{
     height: auto;
     border: none;
