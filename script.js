@@ -53,11 +53,11 @@ function toggleS0() {
                                 + `<p class="noteGAUCHE">`
                                 + data.ue[i].module[j].evaluation[k].note
                                 + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div></div></div>";
+                                + "</p></div>";
                             }
-                            
+                            ue += `</div>`
                         }
-                        
+                        ue += `</div>`
                     }
         
                 // AFFICHAGE BULLETIN S1
@@ -127,11 +127,11 @@ function toggleS1() {
                                 + `<p class="noteGAUCHE">`
                                 + data.ue[i].module[j].evaluation[k].note
                                 + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div></div></div>";
+                                + "</p></div>";
                             }
-                            
+                            ue += `</div>`
                         }
-                        
+                        ue += `</div>`
                     }
 
                 // AFFICHAGE BULLETIN S2
@@ -200,11 +200,11 @@ function toggleS2() {
                                 + `<p class="noteGAUCHE">`
                                 + data.ue[i].module[j].evaluation[k].note
                                 + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div></div></div>";
+                                + "</p></div>";
                             }
-                            
+                            ue += `</div>`
                         }
-                        
+                        ue += `</div>`
                     }
 
 
@@ -274,11 +274,11 @@ function toggleS3() {
                                 + `<p class="noteGAUCHE">`
                                 + data.ue[i].module[j].evaluation[k].note
                                 + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div></div></div>";
+                                + "</p></div>";
                             }
-                            
+                            ue += `</div>`
                         }
-                        
+                        ue += `</div>`
                     }
         
         
