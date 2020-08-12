@@ -297,11 +297,27 @@ function toggleS3() {
                     `;
 
         // AFFICHAGE DU BULLETIN S4
-        
+                    
+                    document.getElementById("beforeBulletin").innerHTML += `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;
+
                     document.getElementById("bulletin").innerHTML = ue;
         
                     document.getElementById("infosSituation").innerHTML =
                     `${data.situation}`
+
+                    var date = new Date();
+                    var options = {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "numeric"
+                    };
+
+            
+
+                    document.getElementById("faitA").innerHTML =
+                    `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options)
+                    + `<br>Le chef de département MMI
+                    <br><br>Michel GREVILLOT`
         
         
                 }) // fermeture .then
