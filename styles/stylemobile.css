@@ -26,6 +26,18 @@
     }
 
 
+    .infosMalus {
+        width: 90%;
+    }
+
+    #faitA {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 4% 0 0 0;
+    }
+
+
     #nonOfficiel {
         font-size: 60px;
         margin-top: 10%;
