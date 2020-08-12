@@ -250,22 +250,22 @@ function toggleS3() {
                         `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
                         + data.ue[i].acronyme
                         + " " + data.ue[i].titre
-                        + `<p class="noteGAUCHE">Note : ` + data.ue[i].note.value
-                        + " Max. : " + data.ue[i].note.max
-                        + " Min. : " + data.ue[i].note.min
-                        + "<br>Rang : " + data.ue[i].rang + "/" + data.ue[i].effectif
+                        + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].note.value
+                        + " <b>Max. :</b> " + data.ue[i].note.max
+                        + " <b>Min. :</b> " + data.ue[i].note.min
+                        + "<br><b>Rang :</b> " + data.ue[i].rang + "/" + data.ue[i].effectif
                         + "</p><br>"
                         ;
                         for (j = 0; j < data.ue[i].module.length; j++) {
                             ue +=
                             `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
                             + data.ue[i].module[j].titre
-                            + `<p class="noteGAUCHE">Note : ` + data.ue[i].module[j].note.value
+                            + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].module[j].note.value
                             + " (" + data.ue[i].module[j].coefficient + ")"
-                            + "<br>Moy. : " + data.ue[i].module[j].note.moy
-                            + " Max. : " + data.ue[i].module[j].note.max
-                            + " Min. : " + data.ue[i].module[j].note.min
-                            + "<br>Rang : " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
+                            + "<br><b>Moy. :</b> " + data.ue[i].module[j].note.moy
+                            + " <b>Max. :</b> " + data.ue[i].module[j].note.max
+                            + " <b>Min. :</b> " + data.ue[i].module[j].note.min
+                            + "<br><b>Rang :</b> " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
                             + "</p>";
                             for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
                                 ue +=
@@ -326,7 +326,7 @@ function toggleS3() {
 
 
 // ********************************************* //
- // ************ O P E N & C L O S E ************* //
+ // ************ O P E N & C L O S E ************ //
  // ******************************************** //
 
 function openClose(obj,event) {
@@ -336,5 +336,5 @@ function openClose(obj,event) {
             box[i].classList.toggle("boxToggle");  // le toggle qui fait tout fonctionner !
         }
     }
-    // event.stopPropagation();
+    event.stopPropagation();
 }
