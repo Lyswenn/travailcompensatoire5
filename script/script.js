@@ -87,7 +87,7 @@ function toggleSem() {
     
             
 
-            // ↓ permet de vér ifier quel bouton radio a été sélectionné ↓
+            // ↓ permet de vérifier quel bouton radio a été sélectionné ↓
 
                 for (n = 0 ; n < semBtn.length ; n ++) {
                     if(semBtn[n].checked) {
@@ -108,46 +108,47 @@ function toggleSem() {
                                 
                                     for (i = 0; i < data.ue.length; i++) {
                                         ue +=
-                                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
+                                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">
+                                        <p class="nomUE">`
                                         + data.ue[i].acronyme
                                         + " " + data.ue[i].titre
-                                        + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].note.value
-                                        + " <b>Max. :</b> " + data.ue[i].note.max
+                                        + `</p><div class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].note.value
+                                        + ` <div id="moyennes")><b>Max. :</b> ` + data.ue[i].note.max
                                         + " <b>Min. :</b> " + data.ue[i].note.min
-                                        + "<br><b>Rang :</b> " + data.ue[i].rang + "/" + data.ue[i].effectif
-                                        + "</p><br>"
+                                        + "</div><b>Rang :</b> " + data.ue[i].rang + "/" + data.ue[i].effectif
+                                        + "</div><br>"
                                         ;
                                         for (j = 0; j < data.ue[i].module.length; j++) {
                                             ue +=
-                                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
+                                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)"><p class="nomModule">`
                                             + data.ue[i].module[j].titre
-                                            + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].module[j].note.value
-                                            + " (" + data.ue[i].module[j].coefficient + ")"
-                                            + "<br><b>Moy. :</b> " + data.ue[i].module[j].note.moy
-                                            + " <b>Max. :</b> " + data.ue[i].module[j].note.max
-                                            + " <b>Min. :</b> " + data.ue[i].module[j].note.min
-                                            + "<br><b>Rang :</b> " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
-                                            + "</p>";
+                                            + ` <p class="coefficient">(Coefficient : ` + data.ue[i].module[j].coefficient + ")</p>"
+                                            + `<div class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].module[j].note.value
+                                            + " (" + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
+                                            + `)<div id="moyennes")><b>Moy. : </b>` + data.ue[i].module[j].note.moy
+                                            + " <b>Max. : </b>" + data.ue[i].module[j].note.max
+                                            + " <b>Min. : </b>" + data.ue[i].module[j].note.min
+                                            + "</div></div>";
                                             for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
                                                 ue +=
                                                 `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
                                                 + data.ue[i].module[j].evaluation[k].description
+                                                +  ` <p class="coefficient"> (Coef.: ` + data.ue[i].module[j].evaluation[k].coefficient + `)`  
                                                 + `<p class="noteGAUCHE">`
                                                 + data.ue[i].module[j].evaluation[k].note
-                                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
                                                 + "</p></div>";
-                                            }
+                                            }   // fermeture boucle for évaluations
                                             ue += `</div>`
-                                        }
+                                        }       // fermeture boucle for module
                                         ue += `</div>`
-                                    }
+                                    }           // fermeture boucle for UE
 
             
     // AFFICHAGE DU BULLETIN
 
                             document.querySelector("#bulletin").innerHTML = ue;
                                     
-                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;            
+                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Rang)</p>`;            
                         
                             document.querySelector("#infosSituation").innerHTML =
                             `${data.situation}`
@@ -160,9 +161,9 @@ function toggleSem() {
                             };
                                     
                             document.querySelector("#faitA").innerHTML =
-                            `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options)
-                            + `<br>Le chef de département MMI
-                            <br><br>Michel GREVILLOT`
+                            `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options);
+                            // + `<br>Le chef de département MMI
+                            // <br><br>Michel GREVILLOT`
 
                 
                             })          // fermeture .then data

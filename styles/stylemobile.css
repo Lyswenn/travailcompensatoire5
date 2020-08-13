@@ -39,18 +39,10 @@
 
     label {
         height: 40px;
+        width: 80%;
         box-shadow: 0 1px 1px rgba(0,0,0,0.4);
         margin: 2px;
     }
-
-
-    /* button {
-        width: 50%;
-        height: 70px;
-        margin: 2px;
-        font-size: 16px;
-        box-shadow: 0 1px 1px rgba(0,0,0,0.4);
-    } */
 
 
     .infosMalus {
@@ -73,8 +65,7 @@
     img {
         position: relative;
         width: 60%;
-        margin-left: 20%;
-        margin-bottom: 3%;
+        margin: 3% 3% 3% auto;
     }
 }
 
@@ -90,5 +81,12 @@
         width: 100%;
         padding: 0;
         flex-wrap: wrap;
+    }
+
+    label {
+        height: 40px;
+        width: 80%;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+        margin: 2px;
     }
 }
