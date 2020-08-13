@@ -1,345 +1,182 @@
 // ********************************************* //
- // ************ S E M E S T R E  1 ************* //
- // ******************************************** //
+// ******** I N F O S  E T U D I A N T ******** //
+// ******************************************** //
 
-
-function toggleS0() {
+function afficheInfos() {
     fetch('https://notes.iutmulhouse.uha.fr/get_sem_list.php', {
-    method: 'POST',
-    })
-        .then(res => {
-        return res.json()
+        method: 'POST',
         })
-        .then(function(semestres) {
-            fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+`${semestres[3]}`, {
-                method: 'POST',       
-        })
-        .then(res => {
+            .then(res => {
             return res.json()
             })
-            .then(function(data) {
+            .then(function(semestres) {
+                semestres.reverse();
+                last = semestres[semestres.length-1];
+                fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+ last, {
+                    method: 'POST',       
+            })
+            .then(res => {
+                return res.json()
+                })
+                .then(function(data) {
 
-                var i;
-                var j;
-                var k;
-                var ue = "";
+    // AFFICHAGE DES INFORMATIONS ÉTUDIANTES
+            
                 
-                    for (i = 0; i < data.ue.length; i++) {
-                        ue +=
-                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
-                        + data.ue[i].acronyme
-                        + " " + data.ue[i].titre
-                        + `<p class="noteGAUCHE">Note : ` + data.ue[i].note.value
-                        + " Max. : " + data.ue[i].note.max
-                        + " Min. : " + data.ue[i].note.min
-                        + "<br>Rang : " + data.ue[i].rang + "/" + data.ue[i].effectif
-                        + "</p><br>"
-                        ;
-                        for (j = 0; j < data.ue[i].module.length; j++) {
-                            ue +=
-                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
-                            + data.ue[i].module[j].titre
-                            + `<p class="noteGAUCHE">Note : ` + data.ue[i].module[j].note.value
-                            + " (" + data.ue[i].module[j].coefficient + ")"
-                            + "<br>Moy. : " + data.ue[i].module[j].note.moy
-                            + " Max. : " + data.ue[i].module[j].note.max
-                            + " Min. : " + data.ue[i].module[j].note.min
-                            + "<br>Rang : " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
-                            + "</p>";
-                            for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
-                                ue +=
-                                `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
-                                + data.ue[i].module[j].evaluation[k].description
-                                + `<p class="noteGAUCHE">`
-                                + data.ue[i].module[j].evaluation[k].note
-                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div>";
-                            }
-                            ue += `</div>`
-                        }
-                        ue += `</div>`
-                    }
-        
-                // AFFICHAGE BULLETIN S1
+                document.querySelector("#infosEtudiant").innerHTML =
                 
-                    document.getElementById("bulletin").innerHTML = ue;
-        
-                    document.getElementById("infosSituation").innerHTML =
-                    `${data.situation}`
-
-
-        
-        
-                }) // fermeture .then
-        });
-    };
+                `<div>
+                ${data.etudiant.sexe} 
+                ${data.etudiant.nom} 
+                ${data.etudiant.prenom} </div><br>
+                Code INE : ${data.etudiant.code_ine} <br> 
+                N°Etudiant : ${data.etudiant.code_nip} <br> 
+                <br><br>
+                `;
+                })
+})
+}
 
 // ********************************************* //
- // ************ S E M E S T R E  2 ************* //
- // ******************************************** //
-function toggleS1() {
-    fetch('https://notes.iutmulhouse.uha.fr/get_sem_list.php', {
-    method: 'POST',
-    })
-        .then(res => {
-        return res.json()
-        })
-        .then(function(semestres) {
-            fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+`${semestres[2]}`, {
-                method: 'POST',
+// ************* B U L L E T I N ************* //
+// ******************************************** //
 
-            // document.getElementById("bulletin").innerHTML += `${semestres[1]}`            
+
+function toggleSem() { 
+
+    var semBtn = document.getElementsByName('semBtn');
+    var n;
+    
+    fetch('https://notes.iutmulhouse.uha.fr/get_sem_list.php', {        
+        method: 'POST',
         })
-        .then(res => {
+            .then(res => {
             return res.json()
             })
-            .then(function(data) {
+            .then(function(semestres) {
+    
+                semestres.reverse();                
+                var nbSem = semestres.length;
+    
+            // ↓ ne fonctionne pas, rend impossible de cocher une autre case que la dernière, à revoir ↓
 
-                var i;
-                var j;
-                var k;
-                var ue = "";
-                
-                    for (i = 0; i < data.ue.length; i++) {
-                        ue +=
-                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
-                        + data.ue[i].acronyme
-                        + " " + data.ue[i].titre
-                        + `<p class="noteGAUCHE">Note : ` + data.ue[i].note.value
-                        + " Max. : " + data.ue[i].note.max
-                        + " Min. : " + data.ue[i].note.min
-                        + "<br>Rang : " + data.ue[i].rang + "/" + data.ue[i].effectif
-                        + "</p><br>"
-                        ;
-                        for (j = 0; j < data.ue[i].module.length; j++) {
-                            ue +=
-                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
-                            + data.ue[i].module[j].titre
-                            + `<p class="noteGAUCHE">Note : ` + data.ue[i].module[j].note.value
-                            + " (" + data.ue[i].module[j].coefficient + ")"
-                            + "<br>Moy. : " + data.ue[i].module[j].note.moy
-                            + " Max. : " + data.ue[i].module[j].note.max
-                            + " Min. : " + data.ue[i].module[j].note.min
-                            + "<br>Rang : " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
-                            + "</p>";
-                            for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
-                                ue +=
-                                `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
-                                + data.ue[i].module[j].evaluation[k].description
-                                + `<p class="noteGAUCHE">`
-                                + data.ue[i].module[j].evaluation[k].note
-                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div>";
-                            }
-                            ue += `</div>`
-                        }
-                        ue += `</div>`
-                    }
-
-                // AFFICHAGE BULLETIN S2
+            // document.querySelector("semestre_0" + nbSem).checked = true;
+            
                     
-                    document.getElementById("bulletin").innerHTML = ue;
-        
-                    document.getElementById("infosSituation").innerHTML =
-                    `${data.situation}`
+            // ↓ devrait pouvoir permettre de rendre les boutons de semestre inutilisables si le semestre n'existe pas encore ↓
+    
+                switch (nbSem) {
+                    case 1:
+                        document.querySelector("#semestre_02").disabled = true;
+                        document.querySelector("#semestre_03").disabled = true;
+                        document.querySelector("#semestre_04").disabled = true;
+                    break;
+                    case 2:
+                        document.querySelector("#semestre_03").disabled = true;
+                        document.querySelector("#semestre_04").disabled = true;
+                    break;
+                    case 3:
+                        document.querySelector("#semestre_04").disabled = true;
+                    break;
+                    default:
+                        document.querySelector("#semestre_02").disabled = false;
+                        document.querySelector("#semestre_02").disabled = false;
+                        document.querySelector("#semestre_03").disabled = false;
+                        document.querySelector("#semestre_04").disabled = false;
+                }
+    
+            
 
-        
-        
-                }) // fermeture .then
-        });
-    };
+            // ↓ permet de vér ifier quel bouton radio a été sélectionné ↓
 
-
- // ********************************************* //
- // ************ S E M E S T R E  3 ************* //
- // ******************************************** //
-function toggleS2() {
-    fetch('https://notes.iutmulhouse.uha.fr/get_sem_list.php', {
-    method: 'POST',
-    })
-        .then(res => {
-        return res.json()
-        })
-        .then(function(semestres) {
-            fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+`${semestres[1]}`, {
-                method: 'POST',       
-        })
-        .then(res => {
-            return res.json()
-            })
-            .then(function(data) {
-
-                var i;
-                var j;
-                var k;
-                var ue = "";
+                for (n = 0 ; n < semBtn.length ; n ++) {
+                    if(semBtn[n].checked) {
+                        fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+semestres[n], {
+                            method: 'POST',       
+                        })
+                        .then(res => {
+                            return res.json()
+                            })
+                            .then(function(data) {
                 
-                    for (i = 0; i < data.ue.length; i++) {
-                        ue +=
-                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
-                        + data.ue[i].acronyme
-                        + " " + data.ue[i].titre
-                        + `<p class="noteGAUCHE">Note : ` + data.ue[i].note.value
-                        + " Max. : " + data.ue[i].note.max
-                        + " Min. : " + data.ue[i].note.min
-                        + "<br>Rang : " + data.ue[i].rang + "/" + data.ue[i].effectif
-                        + "</p><br>"
-                        ;
-                        for (j = 0; j < data.ue[i].module.length; j++) {
-                            ue +=
-                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
-                            + data.ue[i].module[j].titre
-                            + `<p class="noteGAUCHE">Note : ` + data.ue[i].module[j].note.value
-                            + " (" + data.ue[i].module[j].coefficient + ")"
-                            + "<br>Moy. : " + data.ue[i].module[j].note.moy
-                            + " Max. : " + data.ue[i].module[j].note.max
-                            + " Min. : " + data.ue[i].module[j].note.min
-                            + "<br>Rang : " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
-                            + "</p>";
-                            for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
-                                ue +=
-                                `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
-                                + data.ue[i].module[j].evaluation[k].description
-                                + `<p class="noteGAUCHE">`
-                                + data.ue[i].module[j].evaluation[k].note
-                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div>";
-                            }
-                            ue += `</div>`
-                        }
-                        ue += `</div>`
-                    }
+                                var i;
+                                var j;
+                                var k;
+                                var ue = "";
 
-
-                // AFFICHAGE BULLETIN S3
-        
-                    document.getElementById("bulletin").innerHTML = ue;
-        
-                    document.getElementById("infosSituation").innerHTML =
-                    `${data.situation}`
-
-     
-        
-        
-                }) // fermeture .then
-        });
-    };
-
-
- // ********************************************* //
- // ************ S E M E S T R E  4 ************* //
- // ******************************************** //
-function toggleS3() {
-    fetch('https://notes.iutmulhouse.uha.fr/get_sem_list.php', {
-    method: 'POST',
-    })
-        .then(res => {
-        return res.json()
-        })
-        .then(function(semestres) {
-            fetch('https://notes.iutmulhouse.uha.fr/bulletin_JSON.php?sem_id='+`${semestres[0]}`, {
-                method: 'POST',       
-        })
-        .then(res => {
-            return res.json()
-            })
-            .then(function(data) {
-
-                var i;
-                var j;
-                var k;
-                var ue = "";
-                
-                    for (i = 0; i < data.ue.length; i++) {
-                        ue +=
-                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
-                        + data.ue[i].acronyme
-                        + " " + data.ue[i].titre
-                        + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].note.value
-                        + " <b>Max. :</b> " + data.ue[i].note.max
-                        + " <b>Min. :</b> " + data.ue[i].note.min
-                        + "<br><b>Rang :</b> " + data.ue[i].rang + "/" + data.ue[i].effectif
-                        + "</p><br>"
-                        ;
-                        for (j = 0; j < data.ue[i].module.length; j++) {
-                            ue +=
-                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
-                            + data.ue[i].module[j].titre
-                            + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].module[j].note.value
-                            + " (" + data.ue[i].module[j].coefficient + ")"
-                            + "<br><b>Moy. :</b> " + data.ue[i].module[j].note.moy
-                            + " <b>Max. :</b> " + data.ue[i].module[j].note.max
-                            + " <b>Min. :</b> " + data.ue[i].module[j].note.min
-                            + "<br><b>Rang :</b> " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
-                            + "</p>";
-                            for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
-                                ue +=
-                                `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
-                                + data.ue[i].module[j].evaluation[k].description
-                                + `<p class="noteGAUCHE">`
-                                + data.ue[i].module[j].evaluation[k].note
-                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
-                                + "</p></div>";
-                            }
-                            ue += `</div>`
-                        }
-                        ue += `</div>`
-                    }
-        
-        
-        
-        // AFFICHAGE DES INFORMATIONS ÉTUDIANTES            
-        
-                    document.getElementById("infosEtudiant").innerHTML =
-        
-                    `
-                    ${data.etudiant.sexe} 
-                    ${data.etudiant.nom} 
-                    ${data.etudiant.prenom} <br>
-                    Code INE : ${data.etudiant.code_ine} - 
-                    N°Etudiant : ${data.etudiant.code_nip} <br> 
-                     <br><br>
-                    `;
-
-        // AFFICHAGE DU BULLETIN S4
-                    document.getElementById("bulletin").innerHTML = ue;
-
-
-        // AFFICHAGE DES INFORMATIONS "STATIQUES"
-                    
-                    document.getElementById("beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;
-
-        
-                    document.getElementById("infosSituation").innerHTML =
-                    `${data.situation}`
-
-
-                    //création de la date au format dd/mm/yyyy
-                    var date = new Date();
-                    var options = {
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "numeric"
-                    };
+            // ↓ boucles pour les UE, modules et évaluations (dans l'ordre) ↓
+                                
+                                    for (i = 0; i < data.ue.length; i++) {
+                                        ue +=
+                                        `<div class="BoxUE" id="BoxUE" onclick="openClose(this)">`
+                                        + data.ue[i].acronyme
+                                        + " " + data.ue[i].titre
+                                        + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].note.value
+                                        + " <b>Max. :</b> " + data.ue[i].note.max
+                                        + " <b>Min. :</b> " + data.ue[i].note.min
+                                        + "<br><b>Rang :</b> " + data.ue[i].rang + "/" + data.ue[i].effectif
+                                        + "</p><br>"
+                                        ;
+                                        for (j = 0; j < data.ue[i].module.length; j++) {
+                                            ue +=
+                                            `<div id="BoxMATIERE" class="boxToggle" onclick="openClose(this, event)">`
+                                            + data.ue[i].module[j].titre
+                                            + `<p class="noteGAUCHE"><b>Note :</b> ` + data.ue[i].module[j].note.value
+                                            + " (" + data.ue[i].module[j].coefficient + ")"
+                                            + "<br><b>Moy. :</b> " + data.ue[i].module[j].note.moy
+                                            + " <b>Max. :</b> " + data.ue[i].module[j].note.max
+                                            + " <b>Min. :</b> " + data.ue[i].module[j].note.min
+                                            + "<br><b>Rang :</b> " + data.ue[i].module[j].rang.value + "/" + data.ue[i].module[j].effectif.value
+                                            + "</p>";
+                                            for (k = 0; k < data.ue[i].module[j].evaluation.length; k++) {
+                                                ue +=
+                                                `<div class="noteMATIERE boxToggle" id="noteMATIERE" onclick="openClose(this, event)">`
+                                                + data.ue[i].module[j].evaluation[k].description
+                                                + `<p class="noteGAUCHE">`
+                                                + data.ue[i].module[j].evaluation[k].note
+                                                + " (" + data.ue[i].module[j].evaluation[k].coefficient + ")"
+                                                + "</p></div>";
+                                            }
+                                            ue += `</div>`
+                                        }
+                                        ue += `</div>`
+                                    }
 
             
-                    document.getElementById("faitA").innerHTML =
-                    `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options)
-                    + `<br>Le chef de département MMI
-                    <br><br>Michel GREVILLOT`
-        
+    // AFFICHAGE DU BULLETIN
 
-                    // var button = document.getElementsByClassName(".button");
-                    // button.classList.toggle("buttonToggle");
+                            document.querySelector("#bulletin").innerHTML = ue;
+                                    
+                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Coefficient)</p>`;            
+                        
+                            document.querySelector("#infosSituation").innerHTML =
+                            `${data.situation}`
+                
+                            var date = new Date();
+                            var options = {
+                            year: "numeric",
+                            month: "2-digit",
+                            day: "numeric"
+                            };
+                                    
+                            document.querySelector("#faitA").innerHTML =
+                            `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options)
+                            + `<br>Le chef de département MMI
+                            <br><br>Michel GREVILLOT`
 
-                }) // fermeture .then
-        });
-    };
+                
+                            })          // fermeture .then data
+                    };                  // fermeture if
+                }                       // fermeture for
+            })                          // fermeture .then semestres
+}                                       // fermeture function
+
+
 
 
 // ********************************************* //
- // ************ O P E N & C L O S E ************ //
- // ******************************************** //
+// ************ O P E N & C L O S E ************ //
+// ******************************************** //
 
 function openClose(obj,event) {
     var box = obj.childNodes  // Donne la liste d'enfant de l'element selectionné avec des [NUMBER]
