@@ -6,32 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Relevé de notes</title>
-    <link rel="stylesheet" href="style.css">
-    <script src='script.js'></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/stylemobile.css">
+    <script src='script/script.js'></script>
     
 </head>
 
-<body onload="toggleS3()">
+<body onload="toggleSem()">
 
 <header>
-        <div>RELEVE DE NOTES</div>
+        <h1>RELEVE DE NOTES</h1>
         <a href="#">Déconnexion</a>
+        <img src="img/deco.png">
 </header>
     
 <main>
+
+    <img src="img/logoiut.png">
+
+    <div id="nonOfficiel">non officiel</div>
        
     <div id="infosEtudiant"></div>
 
+    <h3>Choisissez un semestre.<br></h3>
     <div id="semestres">
-        Choisissez un semestre.<br>
-        <button type="button" onclick="toggleS0()">S1</button>
-        <button type="button" onclick="toggleS1()">S2</button>
-        <button type="button" onclick="toggleS2()">S3</button>
-        <button type="button" onclick="toggleS3()">S4</button>
+        <div>
+            <input type="radio" id="semestre_01" class="button" name="semBtn" value="0" onclick="toggleSem()">
+            <label for="semestre_01">S1</label>
+        </div>
+        <div>
+            <input type="radio" id="semestre_02" class="button" name="semBtn" value="1" onclick="toggleSem()">
+            <label for="semestre_02">S2</label>
+        </div>
+        <div>
+            <input type="radio" id="semestre_03" class="button" name="semBtn" value="2" onclick="toggleSem()">
+            <label for="semestre_03">S3</label>
+        </div>
+        <div>
+            <input type="radio" id="semestre_04" class="button" name="semBtn" value="3" onclick="toggleSem()">
+            <label for="semestre_04">S4</label>
+        </div>
     </div>
 
-
-    <p style="text-align: right;">Note/20 (Coefficient)</p>
+    <div id="beforeBulletin"></div>
+    
     <div id="bulletin">
     <!-- <div class="BoxUE" id="ue" onclick="openClose(this, event)">
         <p class="noteGAUCHE"></p>
@@ -60,6 +78,8 @@
             <br>- soit un <strong>recours gracieux</strong> auprès de la Présidente de l'Université sans condition de délai,
             <br>- soit un <strong>recours contentieux</strong> auprès du tribunal administratif de Strasbourg dans un délai de deux mois à compter de la notificiation de la présente décision
         </div>
+
+        <div id="faitA"></div>
 
     </div>
 
