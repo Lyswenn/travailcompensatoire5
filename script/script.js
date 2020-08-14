@@ -173,20 +173,23 @@ function toggleSem() {
                             `<button type="input" name="open" onclick="openAll('box')">Tout ouvrir</button>
                             <button type="input" name="close" onclick="closeAll('box')">Tout fermer</button>`
 
-                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Rang)</p>`;            
-                        
-                            document.querySelector("#infosSituation").innerHTML =
-                            `${data.situation}`
-                
+                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Rang)</p>`;
+                            
                             var date = new Date();
                             var options = {
                             year: "numeric",
                             month: "2-digit",
                             day: "numeric"
                             };
-                                    
-                            document.querySelector("#faitA").innerHTML =
-                            `Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options);
+                        
+                            document.querySelector("#finBulletin").innerHTML =
+                            `* La moyenne des UE est modulée par un malus de 0,02 point par heure d'absence injustifiée.
+                            <div class="infosMalus">
+                                En cas de contestation de la présente décision, vous pouvez former :
+                                <br>- soit un <b>recours gracieux</b> auprès de la Présidente de l'Université sans condition de délai,
+                                <br>- soit un <b>recours contentieux</b> auprès du tribunal administratif de Strasbourg dans un délai de deux mois à compter de la notification de la présente décision
+                            </div>
+                            <p id="faitA"</div>Fait à Mulhouse, le ` + date.toLocaleDateString("fr", options) + `</p>`;
                             // + `<br>Le chef de département MMI
                             // <br><br>Michel GREVILLOT`
 

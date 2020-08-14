@@ -77,7 +77,8 @@
     img {
         position: relative;
         width: 60%;
-        margin: 3% 3% 3% auto;
+        margin: auto;
+        /* margin: 3% 3% 3% auto; */
     }
 
 }
