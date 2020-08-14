@@ -1,0 +1,323 @@
+
+/*****************/
+/* ROOT = RACINE */
+/*****************/
+:root{
+	--couleur-palette-1: rgb(18, 52, 86);	
+	--couleur-palette-2: rgba(171, 205, 239, 0.8);
+}
+
+body{
+    margin: 0;
+    font-family: arial;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/***************/
+/* MEP globale */
+/***************/
+.flex{
+    display: flex;
+}
+
+/*********************/
+/* Gestion du header */
+/*********************/
+
+h1 {
+    font-size: 20px;
+    font-family: monospace;
+    margin-left: 4%;
+    font-weight: normal;
+}
+header{
+    background: var(--couleur-palette-1); /*VARIABLE DANS ROOT */
+    color: #FFF;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+header>a{
+    margin-left: auto;
+    margin-right: 1%;
+    color: #FFF;
+    text-decoration: none;
+}
+header>img {
+    display: none;
+}
+
+/*****************************/
+/* Informations de l'étudiant */
+/*****************************/
+
+#infosEtudiant {
+    margin: 10px 0 0 10px;
+}
+
+#infosEtudiant > div {
+    font-weight: bold;
+    color: var(--couleur-palette-1);
+}
+
+/*****************************/
+/*** Sélection du semestre ***/
+/*****************************/
+h3 {
+    margin: auto;
+    text-align: center;
+    color: var(--couleur-palette-1);
+}
+
+#semestres {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#semestres > div {
+    padding: 0.5rem;
+}
+
+/* Boutons semestres */
+
+input[type="radio"] {
+    display: none}
+    input:not(:disabled) ~ label {
+      cursor: pointer;
+    }
+    input:disabled ~ label {
+      /* color: rgba(188, 194, 191, 1);
+      border-color: rgba(188, 194, 191, 1);
+      box-shadow: none;
+      cursor: not-allowed; */
+      display: none;
+    }
+  
+  label {
+    height: 20px;
+    width: 50px;
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 4px;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    border: solid 1px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  input[type="radio"]:checked + label {
+    box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+    background-color: rgba(171, 205, 239, 0.8);
+    transform: translate(0, 2px);
+  }
+
+/* Moyenne totale */
+
+#moyTotales {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+#moyTotales > p {
+    font-size: 16px;
+    margin-top: 2%;
+}
+
+/* Boutons "Ouvrir/Fermer tout" */
+
+.boutons {
+    /* margin-left: 3%; */
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 20px 0px 10px 0;
+    padding: 0.5rem;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    border: solid 1px rgba(0,0,0,0.2);
+}
+
+button:active {
+    box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+    background-color: rgba(171, 205, 239, 0.8);
+    transform: translate(0, 2px);
+}
+
+/*****************/
+/* Barre de main */
+/*****************/
+main{
+    background: #F0F0F0;
+    padding : 10px;
+}
+
+
+
+
+/*****************/
+/* BOITE POUR UE */
+/*****************/
+.boxUE{
+    height: auto;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 1% 10% 0 10%;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+	transition: 0.2s;
+    outline: none;
+    border: solid 1px rgba(0,0,0,0.2);
+}
+.boxUE:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+} 
+.boxUE>div.noteUE{
+    text-align: right;
+}
+
+.nomUE {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/**********************/
+/* BOITE POUR MATIERE */
+/**********************/
+.boxModule{
+    height: auto;
+    width: 90%;
+    border: none;
+    background: var(--couleur-palette-2);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    transition: 0.2s;
+}
+
+.BoxModule{
+    height: auto;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+	transition: 0.2s;
+	outline: none;
+}
+.BoxModule:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+}
+
+.noteGAUCHE{
+    text-align: right;
+    margin: 0;
+    font-size: 20px;
+    /* border: solid red 1px; */
+}
+
+#moyennes {
+    font-size: 14px;
+}
+
+.nomModule {
+    font-size: 18px;
+    padding: 0;
+    margin: 0 0 8px 8px;
+}
+
+.coefficient {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+.boxEval{
+    height: auto;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 2px;
+    /* margin: 5px; */
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+	/* transition: 0.2s; */
+	outline: none;
+}
+ /* .noteMATIERE:active{
+	box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+	transform: translate(0, 4px);
+} */
+
+/**********************/
+/*    Fin de page   */
+/**********************/
+
+#infosSituation {
+    margin: 10px 10px 40px 10px;
+    text-align: right;
+}
+
+.infosMalus {
+    margin-top: 6px;
+    margin-left: 2%;
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 70%;
+    background: rgba(171, 205, 239, 0.4);
+}
+
+#faitA {
+    margin-left: 60%;
+    margin-top: 3%;
+}
+
+#finBulletin {
+    margin-bottom: 3%;
+}
+
+
+
+/**********************/
+/*       Divers       */
+/**********************/
+
+img {
+    width: 30%;
+    position: absolute;
+    margin-left: 65%;
+    opacity: 0.8;
+}
+
+#nonOfficiel {
+    color: rgba(255, 0, 0, 0.1);
+    margin-left: 3%;
+    margin-top: 6%;
+    position: fixed;
+    font-size: 100px;
+    transform: rotate(-10deg);
+    user-select: none;
+    pointer-events: none;
+}
+
+.boxToggle{
+    display: none;
+}
