@@ -56,9 +56,17 @@
         line-height: 40px;
     }
 
+    .nomUE {
+        font-size: 16px;
+    }
+
+    .noteGAUCHE {
+        font-size: 16px;
+    }
 
     .infosMalus {
         width: 90%;
+        font-size: 14px;
     }
 
     #faitA {
