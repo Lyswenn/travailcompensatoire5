@@ -31,30 +31,29 @@
         width: 40px;     
     }
 
-    h3 {
-        /* display: none; */
-    }
 
     #semestres {
         display: flex;
         align-items: stretch;
         width: 100%;
         padding: 0;
-        flex-wrap: nowrap;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        /* justify-content: space-evenly; */
     }
 
     #semestres > div {
-        width: 50%;
+        width: 100px;
+        margin: 5px 10px;
         font-size: 20px;
         padding: 0;
+        /* margin: 10px; */
     }
 
     label {
-        /* height: 40px; */
+        height: 40px;
+        width: 100%;
         box-shadow: 0 1px 1px rgba(0,0,0,0.4);
-        margin: 10px;
-        line-height: 20px;
+        line-height: 40px;
     }
 
 
@@ -71,7 +70,7 @@
 
 
     #nonOfficiel {
-        font-size: 60px;
+        font-size: 30px;
         margin-top: 10%;
     }
 
