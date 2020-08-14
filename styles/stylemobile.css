@@ -41,6 +41,7 @@
         width: 100%;
         padding: 0;
         flex-wrap: nowrap;
+        justify-content: space-around;
     }
 
     #semestres > div {
@@ -50,10 +51,10 @@
     }
 
     label {
-        height: 40px;
-        width: 80%;
+        /* height: 40px; */
         box-shadow: 0 1px 1px rgba(0,0,0,0.4);
-        margin: 2px;
+        margin: 10px;
+        line-height: 20px;
     }
 
 

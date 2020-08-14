@@ -100,10 +100,19 @@ function toggleSem() {
                             })
                             .then(function(data) {
                 
-                                var i;
-                                var j;
-                                var k;
-                                var ue = "";           
+                                var i, j, k, l, m;
+                                var ue = "";
+
+                                var label = document.querySelectorAll('label');
+
+                                for (l = 0 ; l < 4 ; l++) {
+                                    var m = Number(l)+1;
+                                    label[l].style.width = "50px";
+                                    label[l].style.height = "20px";
+                                    label[l].style.lineHeight = "20px";
+                                    label[l].style.fontSize = "14px";
+                                    label[l].innerHTML = "S" + [m];
+                                }
                                 
                                 
                                     
