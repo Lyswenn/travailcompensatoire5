@@ -173,7 +173,7 @@ function toggleSem() {
                             `<button type="input" name="open" onclick="openAll('box')">Tout ouvrir</button>
                             <button type="input" name="close" onclick="closeAll('box')">Tout fermer</button>`
 
-                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 20px;">Note/20 (Rang)</p>`;
+                            document.querySelector("#beforeBulletin").innerHTML = `<p style="text-align: right; font-size: 14px; margin-right: 10%;">Note/20 (Rang)</p>`;
                             
                             var date = new Date();
                             var options = {
